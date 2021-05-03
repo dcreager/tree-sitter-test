@@ -14,8 +14,8 @@ jobs:
       - run: |
           git clone https://github.com/emscripten-core/emsdk.git
           cd emsdk
-          ./emsdk install 2.0.17
-          ./emsdk activate 2.0.17
+          ./emsdk install latest
+          ./emsdk activate latest
           cd ..
           npm install
           source emsdk/emsdk_env.sh
