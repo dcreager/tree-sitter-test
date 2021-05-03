@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
@@ -17,6 +19,9 @@ jobs:
           ./emsdk install latest
           ./emsdk activate latest
           cd ..
+          cd deps/tree-sitter
+          script/build-wasm
+          cd ../..
           npm install
           source emsdk/emsdk_env.sh
           npx tree-sitter build-wasm node_modules/tree-sitter-python
